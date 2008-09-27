@@ -185,7 +185,7 @@ interval<T, Policies> pow(const interval<T, Policies>& x, int pwr)
       return I(yl, yu, true);
   } else if (interval_lib::user::is_neg(x.lower())) { // [-1,1]
     if (pwr & 1) {   // [-1,1]^1
-      return I(-pow_up(-x.lower(), pwr, rnd), pow_up(x.upper(), pwr, rnd), true);
+      return I(-pow_up(static_cast<T>(-x.lower()), pwr, rnd), pow_up(x.upper(), pwr, rnd), true);
     } else {         // [-1,1]^2
       return I(static_cast<T>(0), pow_up(max BOOST_PREVENT_MACRO_SUBSTITUTION(static_cast<T>(-x.lower()), x.upper()), pwr, rnd), true);
     }
@@ -275,7 +275,7 @@ interval<T, Policies> nth_root(interval<T, Policies> const &x, int k)
   if (k == 1) return x;
   typename Policies::rounding rnd;
   typedef typename interval_lib::unprotect<I>::type R;
-  if (!interval_lib::user::is_pos(x.upper()))
+  if (!interval_lib::user::is_pos(x.upper())) {
     if (interval_lib::user::is_zero(x.upper())) {
       T zero(0);
       if (!(k & 1) || interval_lib::user::is_zero(x.lower())) // [-1,0]^/2 or [0,0]
@@ -288,6 +288,7 @@ interval<T, Policies> nth_root(interval<T, Policies> const &x, int k)
       return I(-interval_lib::detail::root_aux_up<R>(-x.lower(), k),
                -interval_lib::detail::root_aux_dn<R>(-x.upper(), k), true);
     }
+  }
   T u = interval_lib::detail::root_aux_up<R>(x.upper(), k);
   if (!interval_lib::user::is_pos(x.lower()))
     if (!(k & 1) || interval_lib::user::is_zero(x.lower())) // [-1,1]^/2 or [0,1]

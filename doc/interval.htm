@@ -87,7 +87,7 @@
   <h3>Interval Arithmetic</h3>
 
   <p>An interval is a pair of numbers which represents all the numbers
-  between these two. (Intervals are considered close so the bounds are
+  between these two. (Intervals are considered closed so the bounds are
   included.) The purpose of this library is to extend the usual arithmetic
   functions to intervals. These intervals will be written [<i>a</i>,<i>b</i>]
   to represent all the numbers between <i>a</i> and <i>b</i> (included).
@@ -214,7 +214,7 @@
 
   <p>This library provides two quite distinct levels of usage. One is to use
   the basic class template <code>interval&lt;T&gt;</code> without specifying
-  the policy. This only requires to know and understand the concepts
+  the policy. This only requires one to know and understand the concepts
   developed above and the content of the namespace boost. In addition to the
   class <code>interval&lt;T&gt;</code>, this level of usage provides
   arithmetic operators (<code>+</code>, <code>-</code>, <code>*</code>,
@@ -851,7 +851,7 @@ namespace compare {
 
   <p>The purpose of this library is to provide an efficient and generalized
   way to deal with interval arithmetic through the use of a templatized class
-  <code>boost::interval</code>. The big contention for which we provide a
+  <code>boost::numeric::interval</code>. The big contention for which we provide a
   rationale is the format of this class template.</p>
 
   <p>It would have been easier to provide a class interval whose base type is
