@@ -32,3 +32,4 @@ Branch          | Travis | Appveyor | Coverity Scan | codecov.io | Deps | Docs |
 * [Submit Pull Requests](https://github.com/boostorg/interval/pulls) against the **develop** branch. Note that by submitting patches you agree to license your modifications under the [Boost Software License, Version 1.0](http://www.boost.org/LICENSE_1_0.txt).  Be sure to include tests proving your changes work properly.
 * Discussions about the library are held on the [Boost developers mailing list](http://www.boost.org/community/groups.html#main). Be sure to read the [discussion policy](http://www.boost.org/community/policy.html) before posting and add the `[interval]` tag at the beginning of the subject line.
 
+ 
